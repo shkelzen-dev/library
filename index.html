@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button onclick="visible()">New Book</button>
+
+    <form id="form">
+      <button id="closeForm">x</button>
+      <label for="title">Title: </label>
+      <input id="title" type="text" /> <br />
+      <label for="author">Author: </label>
+      <input id="author" type="text" /><br />
+      <label for="pages">Pages: </label>
+      <input id="pages" type="text" /><br />
+      <label for="read">Read: </label>
+      <input id="read" type="text" /><br />
+      <input type="submit" id="submit" />
+    </form>
+
+    <div id="main"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
