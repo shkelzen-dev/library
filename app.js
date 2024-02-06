@@ -8,17 +8,24 @@ function Book(title, author, pages, read) {
   this.info = function () {
     return `Title: ${this.title}, Author: ${this.author}, Pages: ${this.pages}, Read: ${this.read}`;
   };
-}
+};
 
+const form = document.getElementById('form');
+const message = document.getElementById('message')
 const submit = document.querySelector("#submit");
 submit.addEventListener("click", clickSubmit);
 function clickSubmit(event) {
   event.preventDefault();
-  addBookToLibrary();
-}
+  if(form.checkValidity()){
+    addBookToLibrary();
+  }else{
+    message.textContent = 'You should complete all fields !';
+  }
+  
+};
 
 function showElement() {
-  document.getElementById("main").innerHTML = "";
+ document.getElementById("main").innerHTML = "";
 
   for (let i = 0; i < myLibrary.length; i++) {
     let div = document.createElement("div");
@@ -69,8 +76,8 @@ function showElement() {
       let el = parseInt(readBtn.id);
       readUnread(el);
     });
-  }
-}
+  };
+};
 
 function addBookToLibrary() {
   document.getElementById("form").style.display = "none";
@@ -84,7 +91,7 @@ function addBookToLibrary() {
   myLibrary.push(libEle);
 
   showElement();
-}
+};
 
 function visible() {
   document.getElementById("form").style.display = "flex";
@@ -92,8 +99,9 @@ function visible() {
   document.getElementById("author").value = "";
   document.getElementById("pages").value = "";
   document.getElementById("read").value = "";
+  document.getElementById("message").textContent = "";
   document.getElementById("title").focus();
-}
+};
 
 function removeElement(el) {
   const firstSubArray = myLibrary.slice(0, el);
@@ -102,7 +110,7 @@ function removeElement(el) {
   const newArray = firstSubArray.concat(secondSubArray);
   myLibrary = newArray;
   showElement();
-}
+};
 
 const closeForm = document.getElementById("closeForm");
 closeForm.addEventListener("click", (event) => {
@@ -117,4 +125,4 @@ function readUnread(el) {
     myLibrary[el].read = "Read";
   }
   showElement();
-}
+};

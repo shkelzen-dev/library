@@ -51,3 +51,9 @@ form #closeForm {
   border-radius: 50%;
   cursor: pointer;
 }
+
+#message{
+  color:red;
+  font-weight: 500;
+}
+
